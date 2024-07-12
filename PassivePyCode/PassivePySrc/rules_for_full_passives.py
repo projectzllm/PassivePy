@@ -7,18 +7,10 @@ import spacy
 from spacy.matcher import Matcher
 
 
-def create_matcher_full(nlp:spacy.language.Language = None):
+def create_matcher_full(nlp:spacy.language.Language = None, verbs_list = []):
 
     """creates a matcher on the following vocabulary"""
     matcher = Matcher(nlp.vocab)
-
-
-    # list of verbs that their adjective form 
-    # is sometimes mistaken as a verb
-    verbs_list = ["associate", "involve", "exhaust", "base", 
-                "lead", "stun", "overrate",  "fill", "bear",
-                "complicate", "reserve", "complicate", "heat",
-                "screw",]
 
     #--------------------------rules--------------------#
 

@@ -5,7 +5,7 @@
 import spacy
 from spacy.matcher import Matcher
 
-def create_matcher(spacy_model = "en_core_web_lg", nlp:spacy.language.Language = None):
+def create_matcher(spacy_model = "en_core_web_lg", nlp:spacy.language.Language = None, verbs_list = []):
 
     """
     creates a matcher with a SpaCy nlp model. The default model is:
@@ -15,13 +15,6 @@ def create_matcher(spacy_model = "en_core_web_lg", nlp:spacy.language.Language =
     if not nlp:
         nlp = spacy.load(spacy_model, disable=["ner"])
     matcher = Matcher(nlp.vocab)
-
-    # list of verbs that their adjective form 
-    # is sometimes mistaken as a verb
-    verbs_list = ["associate", "involve", "exhaust", "base", 
-                "lead", "stun", "overrate",  "fill", "bear",
-                "complicate", "reserve", "complicate", "heat",
-                "screw",]
 
     #--------------------------rules--------------------#
 
